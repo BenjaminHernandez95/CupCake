@@ -1,13 +1,12 @@
 package app.persistence;
 
 import app.entities.Orderline;
-import app.entities.User;
 import app.exceptions.DatabaseException;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class OrderMapper {
+public class OrderlineMapper {
 
     public static ArrayList<Orderline> getOrderlines (int orderID, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "select * from orderline where order_id=?";

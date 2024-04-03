@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    margin-left: 200px;
+    margin-top: -150px;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/buypageimage.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+page

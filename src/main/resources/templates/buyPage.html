@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cupcake</title>
+    <link href="../public/css/buypage.css" th:href="@{/css/buypage.css}" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<div id="page">
+
+
+    <nav>
+        <div id ="left-nav">
+            <a href="BASKET SITE">Orders</a>
+            <a href="CUSTOMER SITE">Customer</a>
+            <a href="SIGN IN SITE">Sign in</a>
+
+        </div>
+        <div id ="right-nav">Customer  BASKET</div>
+    </nav>
+
+    <div id="content">
+
+        <div id="intro-text">
+            <h1>Design your own Cupcake!</h1>
+            <h2>Best cupcakes in bornholm</h2>
+        </div>
+
+
+        <div id="dropdowns">
+            <select name="Topping" id="top">
+                <option >Choose topping</option>
+                <option value="choloate"> Chokolade (5 kr.)</option>
+                <option value="blueberry">Blueberry (5 kr)</option>
+                <option value="rasberry">Rasberry (5 kr)</option>
+                <option value="cripsy">Crispy (6 kr)</option>
+                <option value="strawberry">Strawberry (6 kr)</option>
+                <option value="rum/raisin">Rum/Raisin (7 kr)</option>
+                <option value="orange">Orange (8 kr)</option>
+                <option value="lemon">Lemon (8 kr)</option>
+                <option value="blue cheese">Blue cheese (9 kr)</option>
+
+            </select>
+            <select name="Bottom" id="bot">
+                <option >Choose bottom</option>
+                <option value="choloate"> Chokolade (5 kr.)</option>
+                <option value="vanilla">Vanille (5 kr)</option>
+                <option value="nutmeg">Nutmeg (5 kr)</option>
+                <option value="pistacio">Pistacio (6 kr)</option>
+                <option value="almond">Almond (7 kr)</option>
+
+            </select>
+            <select name="quantity" id="quantity">
+                <option> Amount</option>
+                <option value="1">1 piece</option>
+                <option value="1">2 piece</option>
+                <option value="1">3 piece</option>
+            </select>
+        </div>
+
+        <div id="order-button">
+            <button type="submit">Order</button>
+
+        </div>
+        <div id="checkout-button">
+        <button type="submit">Checkout</button>
+    </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

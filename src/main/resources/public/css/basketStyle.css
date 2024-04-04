@@ -1,0 +1,119 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+/*#header {
+    display: flex;
+    justify-content: center;
+}*/
+
+#basket-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    min-width: 700px;
+    min-height: 800px;
+}
+
+/** Table titel **/
+
+#basket-title {
+    display: flex;
+    justify-content: center;
+}
+
+#title {
+    font-size: 2rem;
+}
+
+/** Table box **/
+
+#basket-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#select-box {
+
+}
+
+
+/** Total box **/
+
+#total-box {
+    display: flex;
+    justify-content: center;
+}
+
+#total {
+    font-size: 1.5rem;
+}
+
+/** Checkout box **/
+
+#checkout-box {
+    display: flex;
+    justify-content: center;
+}
+
+
+/** Table **/
+
+table {
+    min-width: 600px;
+    font-size: 1.3rem;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: darkturquoise;
+    color: white;
+}
+
+/** Checkout button **/
+
+#checkout-box button {
+    background-color: white;
+    border-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+#checkout-box button:hover {
+    background-color: darkcyan;
+    color: white;
+}
+
+/** Delete button **/
+
+#select-box button {
+    background-color: white;
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+#select-box button:hover {
+    background-color: darkred;
+    color: white;
+}

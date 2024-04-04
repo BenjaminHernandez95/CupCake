@@ -3,16 +3,18 @@ package app.entities;
 public class User
 {
     private int userId;
-    private String userName;
+    private String username;
     private String password;
-    private String role;
+    private boolean role;
+    private int balance;
 
-    public User(int userId, String userName, String password, String role)
+    public User(int userId, String userName, String password, boolean role, int balance)
     {
         this.userId = userId;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
         this.role = role;
+        this.balance = balance;
     }
 
     public int getUserId()
@@ -20,9 +22,9 @@ public class User
         return userId;
     }
 
-    public String getUserName()
+    public String getUsername()
     {
-        return userName;
+        return username;
     }
 
     public String getPassword()
@@ -30,9 +32,13 @@ public class User
         return password;
     }
 
-    public String getRole()
+    public boolean getRole()
     {
         return role;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 
     @Override
@@ -40,7 +46,7 @@ public class User
     {
         return "User{" +
                 "userId=" + userId +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';

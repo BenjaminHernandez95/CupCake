@@ -1,0 +1,48 @@
+h1 {
+    font-family: Arial, sans-serif;
+    color:white;
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100vh; /* adjusting the specific height for the body element */
+    background-color: blue;
+    background-image: url("../images/FunnyHairyCupcake.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+form {
+    font-size: 25px;
+    color: white;
+    max-width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+}
+
+.btn {
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: green;
+    color: white;
+}

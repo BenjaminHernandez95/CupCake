@@ -3,12 +3,11 @@ package app.controllers;
 import app.entities.Orderline;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.OrderMapper;
+import app.persistence.OrderlineMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 
 public class BasketController {
 
@@ -22,7 +21,7 @@ public class BasketController {
         try {
             try {
                 int currentOrderID = ctx.sessionAttribute("currentOrder");
-                ArrayList<Orderline> orderlines = OrderMapper.getOrderlines(currentOrderID,connectionPool);
+                ArrayList<Orderline> orderlines = OrderlineMapper.getOrderlines(currentOrderID,connectionPool);
 
                 ctx.attribute("orderlines",orderlines);
 
@@ -42,7 +41,7 @@ public class BasketController {
     public static void deleteOrderline(Context ctx, ConnectionPool connectionPool) {
         int orderlineID = Integer.parseInt(ctx.formParam("orderline_id"));
         try {
-            OrderMapper.deleteOrderline(orderlineID, connectionPool);
+            OrderlineMapper.deleteOrderline(orderlineID, connectionPool);
         }
         catch (DatabaseException e) {
             e.getMessage();

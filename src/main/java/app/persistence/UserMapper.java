@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class UserMapper
 {
 
-    public static User login(String userName, String password, ConnectionPool connectionPool) throws DatabaseException
+    public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "select * from users where username=? and password=?";
 
@@ -20,15 +20,17 @@ public class UserMapper
                 PreparedStatement ps = connection.prepareStatement(sql)
         )
         {
-            ps.setString(1, userName);
+            ps.setString(1, username);
             ps.setString(2, password);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next())
             {
-                int id = rs.getInt("user_id");
-                String role = rs.getString("role");
-                return new User(id, userName, password, role);
+                int user_id = rs.getInt("user_id");
+                boolean role = rs.getBoolean("admin");
+                int balance = rs.getInt("balance");
+                System.out.println("Sign in success");
+                return new User(user_id, username, password, role, balance);
             } else
             {
                 throw new DatabaseException("Fejl i login. Prøv igen");

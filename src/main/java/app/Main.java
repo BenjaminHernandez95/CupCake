@@ -2,6 +2,7 @@ package app;
 
 import app.config.ThymeleafConfig;
 import app.controllers.BasketController;
+import app.controllers.BuyPageController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -28,5 +29,6 @@ public class Main
         app.get("/", ctx -> ctx.render("login.html"));
         UserController.addRoutes(app, connectionPool);
         BasketController.addRoutes(app, connectionPool);
+        BuyPageController.addRoutes(app,connectionPool);
     }
 }

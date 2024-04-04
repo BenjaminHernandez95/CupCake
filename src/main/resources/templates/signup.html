@@ -9,17 +9,27 @@
 </head>
 <body>
 
-<h1>Sign up for a CupCake</h1>
 
-<div>
-    <form action="#" method="post">
+
+<h1>Sign up for CupCake.</h1>
+
+
+<div class="image-container">
+    <img src="../public/images/FunnyHairyCupcake.png" th:src="@{/images/FunnyHairyCupcake.png}" alt="">
+</div>
+
+
+<div class="container">
+    <form method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"> <br><br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-        <br><br>
         <label for="password">Password:</label>
         <input type="text" id="password" name="password">
+        <br><br>
+        <label for="cpassword">Confirm Password:</label>
+        <input type="text" id="cpassword" name="cpassword">
+
+        <h2 th:text="${message}"></h2>
 
         <button class="btn" type="submit">Sign up</button>
     </form>

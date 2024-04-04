@@ -31,6 +31,13 @@ body {
     text-align: center;
 }
 
+.wrapper h2 {
+    font-size: 14px;
+    text-align: center;
+    color: crimson;
+    margin-bottom: 25px;
+}
+
 .wrapper .input-box {
     position: relative;
     width: 100%;

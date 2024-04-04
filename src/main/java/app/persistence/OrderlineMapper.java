@@ -59,4 +59,25 @@ public class OrderlineMapper {
         }
     }
 
+    public static void addOrderline(int orderID, int toppingID,int bottomID, int quantity, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO orderline (order_id, topping_id, bottom_id, quantity) VALUES (?, ?, ?, ?)";
+
+        try {
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, orderID);
+            ps.setInt(2, toppingID);
+            ps.setInt(3, bottomID);
+            ps.setInt(4, quantity);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected != 1) {
+                throw new DatabaseException("Fejl i tilføjelse af en ordrelinje");
+            }
+
+        } catch (SQLException e) {
+            throw new DatabaseException("DB fejl: " + e.getMessage());
+        }
+    }
+
 }

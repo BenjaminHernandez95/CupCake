@@ -16,45 +16,35 @@ public class UserController
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
         app.post("login", ctx -> login(ctx, connectionPool));
+        app.get("login", ctx -> ctx.render("login.html"));
         app.get("logout", ctx -> logout(ctx));
-        app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("signup", ctx -> ctx.render("signup.html"));
-    }
-
-    private static void createUser(Context ctx, ConnectionPool connectionPool)
-    {
-        // Hent form parametre
-        String username = ctx.formParam("username");
-        String password1 = ctx.formParam("password1");
-        String password2 = ctx.formParam("password2");
-
-        if (password1.equals(password2))
-        {
-            try
-            {
-                UserMapper.createuser(username, password1, connectionPool);
-                ctx.attribute("message", "Du er hermed oprettet med brugernavn: " + username +
-                        ". Nu skal du logge på.");
-                ctx.render("index.html");
-            }
-
-            catch (DatabaseException e)
-            {
-                ctx.attribute("message", "Dit brugernavn findes allerede. Prøv igen, eller log ind");
-                ctx.render("createuser.html");
-            }
-        } else
-        {
-            ctx.attribute("message", "Dine to passwords matcher ikke! Prøv igen");
-            ctx.render("createuser.html");
-        }
-
+        app.post("signup", ctx -> signup(ctx, connectionPool));
     }
 
     private static void logout(Context ctx)
     {
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
+    }
+
+    private static void signup(Context ctx, ConnectionPool connectionPool) {
+        String username = ctx.formParam("username");
+        String password = ctx.formParam("password");
+        String cpassword = ctx.formParam("cpassword");
+
+        if (cpassword.equals(password)) {
+            try {
+                UserMapper.createuser(username, password, connectionPool);
+                ctx.redirect("login");
+            } catch (DatabaseException e) {
+                ctx.attribute("message", "Username already exists");
+                ctx.render("signup.html");
+            }
+        } else {
+            ctx.attribute("message", "Passwords do not match!");
+            ctx.render("signup.html");
+        }
     }
 
 
@@ -69,12 +59,16 @@ public class UserController
             User user = UserMapper.login(username, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
             // Hvis ja, send videre til forsiden med login besked
-            ctx.attribute("message", "Du er nu logget ind");
             ctx.render("buypage.html");
         }
         catch (DatabaseException e) {
             // Hvis nej, send tilbage til login side med fejl besked
-            ctx.attribute("message", e.getMessage() );
+            if (e.getMessage().equals("DB fejl")) {
+                ctx.attribute("message", "Can't connect to db");
+            }
+            if (e.getMessage().equals("Fejl i login. Prøv igen")) {
+                ctx.attribute("message", "Wrong username or password");
+            }
             ctx.render("login.html");
         }
     }

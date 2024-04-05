@@ -37,10 +37,11 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 30px;
 }
 
 #select-box {
-
+    padding: 30px;
 }
 
 

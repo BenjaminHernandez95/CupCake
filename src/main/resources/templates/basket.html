@@ -32,38 +32,39 @@
         <h2 id="title">Here are your cupcake orders</h2>
     </div>
     <div id="basket-list">
+        <div id="select-box">
+            <form method="post">
                 <table>
                     <thead>
                     <tr>
-                        <th> Select </th>
-                        <th> Quantity </th>
-                        <th> Topping </th>
-                        <th> Bottom </th>
-                        <th> Price </th>
+                        <th> Select</th>
+                        <th> Quantity</th>
+                        <th> Topping</th>
+                        <th> Bottom</th>
+                        <th> Price</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:if="${orderlines.empty}">
+                    <tr th:if="${session.cart.cartlines.empty}">
                         <td colspan="5" align="center"> You have not ordered any cupcakes</td>
                     </tr>
-                    <tr th:each="orderline : ${orderlines}">
-                        <td><input type="checkbox" name="select" th:value="${orderline.id}"></td>
-                        <td><span th:text="${orderline.quantity}"> 12 x </span></td>
-                        <td><span th:text="${orderline.topping_id}"> Chocolate </span></td>
-                        <td><span th:text="${orderline.bottom_id}"> Strawberry </span></td>
-                        <td><span th:text="${orderline.price}"> 240 kr </span></td>
+                    <tr th:each="cartline, iStat : ${session.cart.cartlines} ">
+                        <td><input type="checkbox" name="cartline_id" th:value="${iStat.count}"></td>
+                        <td><span th:text="${cartline.quantity}"> </span></td>
+                        <td><span th:text="${cartline.topping.name}"> </span></td>
+                        <td><span th:text="${cartline.bottom.name}">  </span></td>
+                        <td><span th:text="${cartline.getPrice()}">  </span></td>
                     </tr>
                     </tbody>
                 </table>
+                <button type="submit" name="cartline_id" formaction="/deleteCartline">Delete</button>
+            </form>
+        </div>
+    </div>
 
-    </div>
-    <div id="select-box">
-        <form method="post">
-            <button type="submit" name="orderline_id"  formaction="/deleteOrderline">Delete</button>
-        </form>
-    </div>
+
     <div id="total-box">
-        <h2 id="total" th:text="${priceAmount}">Your total is going to be ??? kr</h2>
+        <h2 id="total" th:text="'Your total is going to be ' + ${session.cart.getTotalPrice()} + ' kr'">Your total is going to be ??? kr</h2>
     </div>
     <div id="checkout-box">
         <form method="post">
@@ -72,9 +73,6 @@
     </div>
 
 </div>
-
-
-
 
 
 <div id="footer">

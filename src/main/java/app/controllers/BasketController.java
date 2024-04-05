@@ -1,53 +1,63 @@
 package app.controllers;
 
-import app.entities.Orderline;
+import app.entities.Cart;
+import app.entities.Cartline;
+import app.entities.Order;
+import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.OrderlineMapper;
+import app.persistence.OrderMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-import java.util.ArrayList;
-
 public class BasketController {
 
-    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
-    {
-        app.get("basket", ctx -> viewOrders(ctx, connectionPool));
-        app.post("deleteOrderline", ctx -> deleteOrderline(ctx, connectionPool));
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
+        app.get("basket", ctx -> ctx.render("basket.html"));
+        app.post("deleteCartline", ctx -> deleteCartline(ctx, connectionPool));
+        app.post("checkout", ctx -> checkout(ctx, connectionPool));
     }
 
-    public static void viewOrders(Context ctx, ConnectionPool connectionPool) {
+    /*public static void viewOrders(Context ctx, ConnectionPool connectionPool) {
+        try {
+            Cart cart = ctx.sessionAttribute("cart");
+        }
+        catch (NullPointerException e) {
+            e.getMessage();
+        }
+
+        ctx.render("basket.html");
+    }*/
+
+    public static void deleteCartline(Context ctx, ConnectionPool connectionPool) {
+        int cartlineID = Integer.parseInt(ctx.formParam("cartline_id"));
+        Cart cart = ctx.sessionAttribute("cart");
+        cart.removeCartline(cartlineID);
+        ctx.sessionAttribute("cart", cart);
+
+        ctx.redirect("basket");
+
+    }
+
+    private static void checkout(Context ctx, ConnectionPool connectionPool) {
         try {
             try {
-                int currentOrderID = ctx.sessionAttribute("currentOrder");
-                ArrayList<Orderline> orderlines = OrderlineMapper.getOrderlines(currentOrderID,connectionPool);
+                User user = ctx.sessionAttribute("currentUser");
+                Cart cart = ctx.sessionAttribute("cart");
 
-                ctx.attribute("orderlines",orderlines);
+                int orderID = OrderMapper.addOrder(user.getUserId(),connectionPool);
 
-            }
-            catch (NullPointerException e) {
+                for (Cartline cartline : cart.getCartlines()) {
+                    OrderMapper.addOrderline(orderID, cartline.getTopping().getId(), cartline.getBottom().getId(), cartline.getQuantity(), connectionPool);
+                }
+            } catch (NullPointerException e) {
                 e.getMessage();
             }
 
-            ctx.render("basket.html");
-        }
-
-        catch (DatabaseException e) {
+            ctx.render("checkout.html");
+        } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void deleteOrderline(Context ctx, ConnectionPool connectionPool) {
-        int orderlineID = Integer.parseInt(ctx.formParam("orderline_id"));
-        try {
-            OrderlineMapper.deleteOrderline(orderlineID, connectionPool);
-        }
-        catch (DatabaseException e) {
-            e.getMessage();
-        }
-        ctx.redirect("basket");
-
     }
 
 }

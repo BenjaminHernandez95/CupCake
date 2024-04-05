@@ -33,10 +33,11 @@
         </div>
 
 
-        <div id="dropdowns">
-            <select name="Topping" id="top">
+        <form method="post" action="/addOrderline">
+            <div id="dropdowns">
+            <select name="topping" id="topping">
                 <option >Choose topping</option>
-                <option value="1"> Chokolade (5 kr.)</option>
+                <option value="1"> Chokolade (5 kr)</option>
                 <option value="2">Blueberry (5 kr)</option>
                 <option value="3">Rasberry (5 kr)</option>
                 <option value="4">Crispy (6 kr)</option>
@@ -47,31 +48,32 @@
                 <option value="9">Blue cheese (9 kr)</option>
 
             </select>
-            <select name="Bottom" id="bot">
+            <select name="bottom" id="bottom">
                 <option >Choose bottom</option>
-                <option value="1"> Chokolade (5 kr.)</option>
+                <option value="1">Chokolade (5 kr.)</option>
                 <option value="2">Vanille (5 kr)</option>
                 <option value="3">Nutmeg (5 kr)</option>
                 <option value="4">Pistacio (6 kr)</option>
                 <option value="5">Almond (7 kr)</option>
 
             </select>
-            <select name="Quantity" id="quantity">
+            <select name="quantity" id="quantity">
                 <option> Amount</option>
                 <option value="1">1 piece</option>
                 <option value="2">2 piece</option>
                 <option value="3">3 piece</option>
             </select>
+
         </div>
 
-        <div id="order-button"><form method="post">
+        <div id="order-button">
             <button type="submit" name="order"  formaction="/addOrderline">Order</button>
-        </form>
         </div>
+        </form>
 
         <div id="checkout-button">
-            <form method="post">
-                <button type="submit" name="checkout" formaction="/basket">Checkout</button>
+            <form method="get">
+                <button type="submit" name="basket" formaction="/basket">Checkout</button>
             </form>
     </div>
 

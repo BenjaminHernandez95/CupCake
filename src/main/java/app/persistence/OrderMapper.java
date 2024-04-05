@@ -1,12 +1,14 @@
 package app.persistence;
 
+import app.entities.Order;
 import app.entities.Orderline;
 import app.exceptions.DatabaseException;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class OrderlineMapper {
+public class OrderMapper {
 
     public static ArrayList<Orderline> getOrderlines (int orderID, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "select * from orderline where order_id=?";
@@ -78,6 +80,30 @@ public class OrderlineMapper {
         } catch (SQLException e) {
             throw new DatabaseException("DB fejl: " + e.getMessage());
         }
+    }
+
+    //TODO: Fix det her
+    public static int addOrder(int customerID, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO public.order (date, customer_id) VALUES (?, ?)";
+
+        try {
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setDate(1, Date.valueOf(LocalDate.now()));
+            ps.setInt(2, customerID);
+            ps.executeUpdate();
+
+            ResultSet keyset = ps.getGeneratedKeys();
+
+            if (keyset.next()) {
+                int order_id = keyset.getInt(1);
+                return order_id;
+            }
+
+        } catch (SQLException e) {
+            throw new DatabaseException("DB fejl: " + e.getMessage());
+        }
+        return 0;
     }
 
 }

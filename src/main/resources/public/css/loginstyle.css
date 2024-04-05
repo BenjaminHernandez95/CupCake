@@ -17,13 +17,15 @@ body {
 }
 
 .wrapper {
-    width: 420px;
+    width: 700px;
+    height: auto;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
+
 }
 
 .wrapper h1 {
@@ -36,9 +38,11 @@ body {
     text-align: center;
     color: crimson;
     margin-bottom: 25px;
+
 }
 
 .wrapper .input-box {
+
     position: relative;
     width: 100%;
     height: 50px;
@@ -56,6 +60,7 @@ body {
     font-size: 16px;
     color: #fff;
     padding: 20px 45px 20px 20px;
+    justify-content: center;
 }
 
 .input-box input::placeholder {
@@ -74,7 +79,6 @@ body {
     font-size: 16px;
     color: #333;
     font-weight: 600;
-
 }
 
 .wrapper .register-link {

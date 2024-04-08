@@ -23,8 +23,8 @@ public class Order {
         return order_id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return date.toString();
     }
 
     public int getCustomer_id() {

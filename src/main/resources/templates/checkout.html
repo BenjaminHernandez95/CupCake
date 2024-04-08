@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="../public/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>It worked!!!</h1>
+<h1>Checkout</h1>
+
+<div>
+    <label for="orderID">Order ID:</label>
+    <input type="text" id="orderID" th:value="${orderID}" readonly>
+</div>
+<div>
+    <label for="totalAmount">Total Amount:</label>
+    <input type="text" id="totalAmount" th:value="${totalAmount}" readonly>
+</div>
+<button th:onclick="|fetchOrderDetails('${ctxPath}/getOrderDetails')|">Get Order Details</button>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.AdminController;
 import app.controllers.BasketController;
 import app.controllers.BuyPageController;
 import app.controllers.UserController;
@@ -23,12 +24,13 @@ public class Main
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
             config.fileRenderer(new JavalinThymeleaf(ThymeleafConfig.templateEngine()));
-        }).start(7070);
+        }).start(6969);
 
         // Routing
         app.get("/", ctx -> ctx.render("login.html"));
         UserController.addRoutes(app, connectionPool);
         BasketController.addRoutes(app, connectionPool);
         BuyPageController.addRoutes(app,connectionPool);
+        AdminController.addRoutes(app,connectionPool);
     }
 }

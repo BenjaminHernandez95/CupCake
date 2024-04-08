@@ -1,0 +1,32 @@
+@startuml
+|Customer|
+start
+|Customer|
+:Opret en konto/profil og log ind i systemet med brugernavn og kode ;
+|Customer|
+:Betal og bestil cupcakes med valgfri bund og top;
+:Rejse forbi butikken i firmaet Olsker Cupcakes, og hente ordren;
+|Customer|
+
+
+
+|Administrator|
+:Indsæt beløb på kundens konto i Postgres;
+|Administrator|
+
+|Customer|
+:Se valgte ordrelinier i indkøbskurv og den samlede pris;
+:Fjern en ordrelinie fra indkøbskurv;
+|Customer|
+
+|Administrator|
+:Se alle ordrer i systemet;
+:Se alle kunder i systemet;
+:Fjerne en ordre;
+|Administrator|
+
+|Customer|
+stop
+|Administrator|
+stop
+@enduml

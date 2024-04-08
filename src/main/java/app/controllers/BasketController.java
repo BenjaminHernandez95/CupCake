@@ -18,17 +18,6 @@ public class BasketController {
         app.post("checkout", ctx -> checkout(ctx, connectionPool));
     }
 
-    /*public static void viewOrders(Context ctx, ConnectionPool connectionPool) {
-        try {
-            Cart cart = ctx.sessionAttribute("cart");
-        }
-        catch (NullPointerException e) {
-            e.getMessage();
-        }
-
-        ctx.render("basket.html");
-    }*/
-
     public static void deleteCartline(Context ctx, ConnectionPool connectionPool) {
         int cartlineID = Integer.parseInt(ctx.formParam("cartline_id"));
         Cart cart = ctx.sessionAttribute("cart");

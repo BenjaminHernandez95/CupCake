@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViewOrder</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin view</title>
+    <link href="../public/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link href="../public/css/adminView.css" th:href="@{/css/adminView.css}" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+<div class="order-box">
+    <form method="post">
+        <h2 class="text">Order list</h2>
+        <table>
+            <thead>
+            <tr>
+                <th> Orderline_id</th>
+                <th> Quantity</th>
+                <th> Topping_id</th>
+                <th> Bottom_id</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(session.orderlines)}">
+                <td colspan="4"> There is no orderlines</td>
+            </tr>
+            <tr th:each="orderline : ${session.orderlines}">
+                <td><span th:text="${orderline.id}"> OrderlineID </span></td>
+                <td><span th:text="${orderline.quantity}"> Date </span></td>
+                <td><span th:text="${orderline.topping_id}"> CustomerID </span></td>
+                <td><span th:text="${orderline.bottom_id}"> CustomerID </span></td>
+                <td>
+                    <button type="submit" name="orderlineID" th:value="${orderline.id}" formaction="/deleteOrderline">Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <form method="get" action="/adminView">
+        <div class="button-box">
+            <button type="submit" name="goBack">Go back</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+</body>
+</html>

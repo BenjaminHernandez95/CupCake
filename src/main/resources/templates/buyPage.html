@@ -13,12 +13,12 @@
 
 
     <nav>
-        <div id ="left-nav">
+        <div id="left-nav">
             <a href="/templates/basket.html">Orders</a>
             <a href="CUSTOMER SITE">Customer</a>
             <a href="/templates/login.html">Sign in</a>
             <a href="/templates/signup.html">Create user</a>
-
+            <a href="adminView">Admin</a>
         </div>
     </nav>
 
@@ -35,40 +35,40 @@
 
         <form method="post" action="/addOrderline">
             <div id="dropdowns">
-            <select name="topping" id="topping">
-                <option >Choose topping</option>
-                <option value="1"> Chokolade (5 kr)</option>
-                <option value="2">Blueberry (5 kr)</option>
-                <option value="3">Rasberry (5 kr)</option>
-                <option value="4">Crispy (6 kr)</option>
-                <option value="5">Strawberry (6 kr)</option>
-                <option value="6">Rum/Raisin (7 kr)</option>
-                <option value="7">Orange (8 kr)</option>
-                <option value="8">Lemon (8 kr)</option>
-                <option value="9">Blue cheese (9 kr)</option>
+                <select name="topping" id="topping">
+                    <option>Choose topping</option>
+                    <option value="1"> Chokolade (5 kr)</option>
+                    <option value="2">Blueberry (5 kr)</option>
+                    <option value="3">Rasberry (5 kr)</option>
+                    <option value="4">Crispy (6 kr)</option>
+                    <option value="5">Strawberry (6 kr)</option>
+                    <option value="6">Rum/Raisin (7 kr)</option>
+                    <option value="7">Orange (8 kr)</option>
+                    <option value="8">Lemon (8 kr)</option>
+                    <option value="9">Blue cheese (9 kr)</option>
 
-            </select>
-            <select name="bottom" id="bottom">
-                <option >Choose bottom</option>
-                <option value="1">Chokolade (5 kr.)</option>
-                <option value="2">Vanille (5 kr)</option>
-                <option value="3">Nutmeg (5 kr)</option>
-                <option value="4">Pistacio (6 kr)</option>
-                <option value="5">Almond (7 kr)</option>
+                </select>
+                <select name="bottom" id="bottom">
+                    <option>Choose bottom</option>
+                    <option value="1">Chokolade (5 kr.)</option>
+                    <option value="2">Vanille (5 kr)</option>
+                    <option value="3">Nutmeg (5 kr)</option>
+                    <option value="4">Pistacio (6 kr)</option>
+                    <option value="5">Almond (7 kr)</option>
 
-            </select>
-            <select name="quantity" id="quantity">
-                <option> Amount</option>
-                <option value="1">1 piece</option>
-                <option value="2">2 piece</option>
-                <option value="3">3 piece</option>
-            </select>
+                </select>
+                <select name="quantity" id="quantity">
+                    <option> Amount</option>
+                    <option value="1">1 piece</option>
+                    <option value="2">2 piece</option>
+                    <option value="3">3 piece</option>
+                </select>
 
-        </div>
+            </div>
 
-        <div id="order-button">
-            <button type="submit" name="order"  formaction="/addOrderline">Order</button>
-        </div>
+            <div id="order-button">
+                <button type="submit" name="order" formaction="/addOrderline">Order</button>
+            </div>
         </form>
 
         <div id="checkout-button">
@@ -78,10 +78,7 @@
         </div>
 
 
-
     </div>
-
-
 
 
 </div>

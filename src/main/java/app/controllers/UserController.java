@@ -41,7 +41,8 @@ public class UserController
                 ctx.attribute("message", "Username already exists");
                 ctx.render("signup.html");
             }
-        } else {
+        }
+        else {
             ctx.attribute("message", "Passwords do not match!");
             ctx.render("signup.html");
         }

@@ -13,7 +13,7 @@ public class BuyPageController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
         app.post("addOrderline", ctx -> addToCart(ctx, connectionPool));
-        app.get("buyPage", ctx -> ctx.render("buyPage.html"));
+        app.get("buyPage", ctx -> buyPage(ctx, connectionPool));
     }
 
     private static void addToCart(Context ctx, ConnectionPool connectionPool) {
@@ -38,6 +38,15 @@ public class BuyPageController {
         ctx.sessionAttribute("cart",cart);
         ctx.redirect("buyPage");
 
+    }
+
+    private static void buyPage(Context ctx, ConnectionPool connectionPool) {
+        Cart cart = ctx.sessionAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            ctx.sessionAttribute("cart",cart);
+        }
+        ctx.render("buyPage.html");
     }
 }
 

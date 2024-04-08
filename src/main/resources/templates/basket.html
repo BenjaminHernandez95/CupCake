@@ -41,7 +41,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:if="${session.cart.cartlines.empty}">
+                    <tr th:if="${session.cart.cartCount() == 0}">
                         <td colspan="5" align="center"> You have not ordered any cupcakes</td>
                     </tr>
                     <tr th:each="cartline, iStat : ${session.cart.cartlines} ">

@@ -7,16 +7,16 @@
     <link href="../public/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Checkout</h1>
+<h1></h1>
 
-<div>
+
+<div class="OrderID">
     <label for="orderID">Order ID:</label>
-    <input type="text" id="orderID" th:value="${orderID}" readonly>
+    <input type="text" id="orderID" th:value="${OrderID}" readonly>
 </div>
-<div>
+<div class ="Amount">
     <label for="totalAmount">Total Amount:</label>
-    <input type="text" id="totalAmount" th:value="${totalAmount}" readonly>
+    <input type="text" id="totalAmount" th:value="${session.cart.getTotalPrice()}+ kr" readonly>
 </div>
-<button th:onclick="|fetchOrderDetails('${ctxPath}/getOrderDetails')|">Get Order Details</button>
 </body>
 </html>

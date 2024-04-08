@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    margin-left: 200px;
+    margin-top: -150px;
+    align-items: center;
+    min-height: 145vh;
+    background: url(../images/checkout2.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.OrderID{
+    margin-left: 200px;
+    margin-top: -150px;
+    align-items: center;
+    min-height: 20vh;
+    color: #fff;
+
+
+}
+
+.Amount{
+    margin-left: 200px;
+    margin-top: -150px;
+    align-items: center;
+    min-height: 20vh;
+    color: #fff;
+
+
+}

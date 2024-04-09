@@ -35,6 +35,7 @@ public class BasketController {
                 Cart cart = ctx.sessionAttribute("cart");
 
                 int orderID = OrderMapper.addOrder(user.getUserId(),connectionPool);
+                ctx.attribute("OrderID",orderID);
 
                 for (Cartline cartline : cart.getCartlines()) {
                     OrderMapper.addOrderline(orderID, cartline.getTopping().getId(), cartline.getBottom().getId(), cartline.getQuantity(), connectionPool);

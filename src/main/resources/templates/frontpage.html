@@ -6,11 +6,11 @@
     <link href="../public/css/frontpage.css" th:href="@{/css/frontpage.css}" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="links">
-        <a href="/templates/login.html" th:href="@{/}">
+        <a th:href="login">
             <img alt="logo" class="pic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMlJREFUSEvdlTEKwkAQRV/OIQhiobcRvIatjTfQM+g5PIO1jZ0oCN7BRvmQLVwW8zdsMGTb/PlvdmY2U9HxqTr2pzeABbAF5saNL8AaOErr3uABjAzzILkC0xzAu450EvrSOgHyHh5gD6yAV6IvrUoU+8jkBCyBZ/SxGEC+MhdEsHAaAUHgTqXKpHId6oD/A5zMQ5atSuQCijY5fmjFx3R4L/lXnxrHNBV8B8ZO92vNDZjk/K61cHbAzICcgU3uwjF80xJ3H/QX8AGSLjYZ0H53zgAAAABJRU5ErkJggg==" th:src="@{/images/506b968e3f70e0d89e43e26b48e6f8b6.png}"/>
         </a>
 
-        <a href="/templates/basket.html" th:href="@{/}">
+        <a th:href="basket">
             <img alt="logo" class="pic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAYlJREFUSEu11T1PFUEUxvHfjSFUGrDGhEhjqCiw9SUmYox8AGwIJQUEGwtrE2NjJBJqCkmofYlRKKCHkFASElA/gC+JnUb3kLvJMt5hL5d7p9nd2TPnf2bOc8409Hg0euxfHaAPt7CeCeQ+PuJPLtA6wCO8wEvEe3UsYxYLWOwEMIjPuIgHeJ84ibm3+IlhfGsFOW0HZYRxPHczEW7iJpYwdxbAKPaaC67hIAOotcvtYAs38ArzNUord/oJE6ltK8Ak3jTPdCR3thVHkaujQgyXEKr6UIVUAbsY61JdbBeiuB6+qoAvuNIlQKgvlHUCsILpLgHC10wKeIjVLgGmsJYCBjIJLY/xbwLPzYfd5aLCv6eA+G6V6LMCdjBeBpPK9DketxlpDvwMT3KAO9g4J+B20YGjhRyPdAf9Rdf8gXimNu3k4FfReSOXv3OAmI9KvNehmt4hOsF/0VXnyjugE0b0rehfpwKuYh8XOiDE2sM6QPyPin6KoTYhX5vKeZ3a112ZbfrPm/Uc8A++iUQZmCsOBAAAAABJRU5ErkJggg==" th:src="@{/images/kurv-ikon-360x360.png}"/>
         </a>
     </div>
@@ -40,7 +40,7 @@
 
     <nav>
         <div id ="order">
-            <a href="/templates/buyPage.html">Order</a>
+            <a th:href="buyPage">Order</a>
         </div>
     </nav>
 
@@ -55,9 +55,9 @@
 </div>
 
     <div class="wrapper">
-        <img class="image" src="../public/images/birthday-cupcakes-with-blur-background-colorful-balloons-realistic-image-ultra-hd-high-design-very-free-photo.jpg">
-        <img  class="image" src="../public/images/406033.jpg">
-        <img  class="image" src="../public/images/clg4itqjb000fl2086dj27elx_4.jpeg">
+        <img class="image" th:src="@{/images/birthday-cupcakes-with-blur-background-colorful-balloons-realistic-image-ultra-hd-high-design-very-free-photo.jpg}">
+        <img  class="image" th:src="@{/images/406033.jpg}">
+        <img  class="image" th:src="@{/images/clg4itqjb000fl2086dj27elx_4.jpeg}">
     </div>
 
 </div>

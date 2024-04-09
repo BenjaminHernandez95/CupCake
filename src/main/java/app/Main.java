@@ -27,7 +27,7 @@ public class Main
         }).start(6969);
 
         // Routing
-        app.get("/", ctx -> ctx.render("login.html"));
+        app.get("/", ctx -> ctx.render("frontpage.html"));
         UserController.addRoutes(app, connectionPool);
         BasketController.addRoutes(app, connectionPool);
         BuyPageController.addRoutes(app,connectionPool);

@@ -25,12 +25,12 @@ body {
 
     width: 500px;
     background-color: lightgrey;
-    margin:50px auto;
+    margin: 50px auto;
     padding: 20px;
     position: absolute;
     left: 50px;
     top: 50px;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.1); /* Fremhæver boksen, ved at tilføje en skygge */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Fremhæver boksen, ved at tilføje en skygge */
     border-radius: 10px;
     opacity: 0.90; /* Adjust the opacity value as needed */
 }

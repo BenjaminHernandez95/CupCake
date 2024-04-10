@@ -16,7 +16,7 @@ public class Cartline {
     }
 
     public int getPrice() {
-        return quantity*(topping.getPrice() + bottom.getPrice());
+        return quantity * (topping.getPrice() + bottom.getPrice());
     }
 
     public Topping getTopping() {

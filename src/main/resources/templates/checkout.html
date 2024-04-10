@@ -9,12 +9,11 @@
 <body>
 <h1></h1>
 
-
 <div class="OrderID">
     <label for="orderID">Order ID:</label>
     <input type="text" id="orderID" th:value="${OrderID}" readonly>
 </div>
-<div class ="Amount">
+<div class="Amount">
     <label for="totalAmount">Total Amount:</label>
     <input type="text" id="totalAmount" th:value="${session.cart.getTotalPrice()}+ kr" readonly>
 </div>

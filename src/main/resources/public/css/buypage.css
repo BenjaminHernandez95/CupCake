@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     margin-left: 200px;
     margin-top: -150px;
@@ -10,10 +10,6 @@ body{
 }
 
 
-
-.text{
-
+.text {
     color: #fff;
-
-
 }

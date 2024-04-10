@@ -10,8 +10,7 @@ import io.javalin.http.Context;
 import java.util.ArrayList;
 
 public class BuyPageController {
-    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
-    {
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.post("addOrderline", ctx -> addToCart(ctx, connectionPool));
         app.get("buyPage", ctx -> ctx.render("buyPage.html"));
     }
@@ -30,12 +29,11 @@ public class BuyPageController {
             Topping top = CupcakeMapper.getToppingById(toppingID, connectionPool);
             Bottom bot = CupcakeMapper.getBottomById(bottomID, connectionPool);
             cart.add(top, bot, quantity);
-        }
-        catch (DatabaseException e) {
+        } catch (DatabaseException e) {
             e.getMessage();
         }
 
-        ctx.sessionAttribute("cart",cart);
+        ctx.sessionAttribute("cart", cart);
         ctx.redirect("buyPage");
 
     }

@@ -12,11 +12,8 @@
     <title>Admin view</title>
     <link href="../public/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link href="../public/css/adminView.css" th:href="@{/css/adminView.css}" rel="stylesheet"/>
-
-
 </head>
 <body>
-
 <div class="order-box">
     <form method="post">
         <h2 class="text">Order list</h2>
@@ -39,7 +36,8 @@
                 <td><span th:text="${orderline.topping_id}"> CustomerID </span></td>
                 <td><span th:text="${orderline.bottom_id}"> CustomerID </span></td>
                 <td>
-                    <button type="submit" name="orderlineID" th:value="${orderline.id}" formaction="/deleteOrderline">Delete
+                    <button type="submit" name="orderlineID" th:value="${orderline.id}" formaction="/deleteOrderline">
+                        Delete
                     </button>
                 </td>
             </tr>

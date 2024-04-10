@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     margin-left: 200px;
     margin-top: -150px;
@@ -9,11 +9,11 @@ body{
     background-position: center;
 }
 
-input{
+input {
     font-size: 24px;
 }
 
-.OrderID{
+.OrderID {
     margin-left: 200px;
     margin-top: -150px;
     align-items: center;
@@ -22,18 +22,13 @@ input{
     font-size: 24px;
 
 
-
-
-
 }
 
-.Amount{
+.Amount {
     margin-left: 200px;
     margin-top: -150px;
     align-items: center;
     min-height: 20vh;
     color: #fff;
     font-size: 24px;
-
-
 }

@@ -51,7 +51,7 @@ public class AdminController {
         int orderID = Integer.parseInt(ctx.formParam("orderID"));
 
         try {
-            OrderMapper.deleteOrder(orderID,connectionPool);
+            OrderMapper.deleteOrder(orderID, connectionPool);
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +62,7 @@ public class AdminController {
         int orderlineID = Integer.parseInt(ctx.formParam("orderlineID"));
 
         try {
-            OrderMapper.deleteOrderlineByID(orderlineID,connectionPool);
+            OrderMapper.deleteOrderlineByID(orderlineID, connectionPool);
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }

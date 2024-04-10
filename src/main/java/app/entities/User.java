@@ -1,15 +1,13 @@
 package app.entities;
 
-public class User
-{
+public class User {
     private int userId;
     private String username;
     private String password;
     private boolean role;
     private int balance;
 
-    public User(int userId, String userName, String password, boolean role, int balance)
-    {
+    public User(int userId, String userName, String password, boolean role, int balance) {
         this.userId = userId;
         this.username = userName;
         this.password = password;
@@ -17,23 +15,19 @@ public class User
         this.balance = balance;
     }
 
-    public int getUserId()
-    {
+    public int getUserId() {
         return userId;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public boolean getRole()
-    {
+    public boolean getRole() {
         return role;
     }
 
@@ -42,8 +36,7 @@ public class User
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + username + '\'' +

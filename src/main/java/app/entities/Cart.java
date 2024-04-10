@@ -32,7 +32,7 @@ public class Cart {
     }
 
     public void removeCartline(int cartlineID) {
-        cartlines.remove(cartlineID-1);
+        cartlines.remove(cartlineID - 1);
     }
 
 }

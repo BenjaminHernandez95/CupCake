@@ -5,10 +5,8 @@
     <title>Cupcake basket</title>
     <link href="../public/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link href="../public/css/basketStyle.css" th:href="@{/css/basketStyle.css}" rel="stylesheet"/>
-
 </head>
 <body>
-
 <div id="header">
 
     <div id="banner">
@@ -20,7 +18,6 @@
     </div>
 
 </div>
-
 
 <div id="basket-box" class="wrapper">
 
@@ -58,22 +55,17 @@
         </div>
     </div>
 
-
     <div id="total-box">
-        <h2 id="total" th:text="'Your total is going to be ' + ${session.cart.getTotalPrice()} + ' kr'">Your total is going to be ??? kr</h2>
+        <h2 id="total" th:text="'Your total is going to be ' + ${session.cart.getTotalPrice()} + ' kr'">Your total is
+            going to be ??? kr</h2>
     </div>
     <div id="checkout-box">
         <form method="post">
             <button type="submit" name="checkout" formaction="/checkout">Checkout</button>
         </form>
     </div>
-
 </div>
-
-
 <div id="footer">
-
 </div>
-
 </body>
 </html>

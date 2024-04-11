@@ -11,8 +11,10 @@ import io.javalin.http.Context;
 
 import java.util.List;
 
-public class UserController {
-    public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
+public class UserController
+{
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
+    {
         app.post("login", ctx -> login(ctx, connectionPool));
         app.get("login", ctx -> ctx.render("login.html"));
         app.get("logout", ctx -> logout(ctx));
@@ -20,7 +22,8 @@ public class UserController {
         app.post("signup", ctx -> signup(ctx, connectionPool));
     }
 
-    private static void logout(Context ctx) {
+    private static void logout(Context ctx)
+    {
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
     }
@@ -45,7 +48,8 @@ public class UserController {
     }
 
 
-    public static void login(Context ctx, ConnectionPool connectionPool) {
+    public static void login(Context ctx, ConnectionPool connectionPool)
+    {
         // Hent form parametre
         String username = ctx.formParam("username");
         String password = ctx.formParam("password");
@@ -56,7 +60,8 @@ public class UserController {
             ctx.sessionAttribute("currentUser", user);
             // Hvis ja, send videre til forsiden med login besked
             ctx.render("buypage.html");
-        } catch (DatabaseException e) {
+        }
+        catch (DatabaseException e) {
             // Hvis nej, send tilbage til login side med fejl besked
             if (e.getMessage().equals("DB fejl")) {
                 ctx.attribute("message", "Can't connect to db");

@@ -22,7 +22,7 @@ public class Main {
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
             config.fileRenderer(new JavalinThymeleaf(ThymeleafConfig.templateEngine()));
-        }).start(6969);
+        }).start(7070);
 
         // Routing
         app.get("/", ctx -> ctx.render("frontpage.html"));
@@ -31,4 +31,5 @@ public class Main {
         BuyPageController.addRoutes(app, connectionPool);
         AdminController.addRoutes(app, connectionPool);
     }
+
 }
